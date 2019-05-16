@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+def getTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getDefault());
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29-rc3"
+    defaultConfig {
+        applicationId "com.orbbec.obColor2"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 3
+        versionName "2.3.38.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions -fPIC "
+            }
+        }
+
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets{
+        main{
+            jniLibs.srcDirs =['libs']
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFileName = output.outputFileName
+            def fileName
+            if (outputFileName != null && outputFileName.endsWith('.apk')) {
+                if (variant.buildType.name.equals('release')) {
+                    fileName = "obColorforOpenNI2_${defaultConfig.versionName}_${getTime()}.apk"
+                } else if (variant.buildType.name.equals('debug')) {
+                    fileName = "obColorforOpenNI2_${defaultConfig.versionName}_${getTime()}.apk"
+                }
+                output.outputFileName = new File(outputFileName, fileName)
+            }
+
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+}

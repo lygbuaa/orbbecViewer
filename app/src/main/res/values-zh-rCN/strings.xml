@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">obColor2</string>
+ 
+    <string name="warning">警告</string>
+    <string name="dev_not_found">3D摄像头未连接</string>
+    <string name="usb_disconnect_msg">设备已断开，请检查设备连接状态</string>
+    <string name="confirm">确认</string>
+    <string name="dialog_warning">警告</string>
+    <string name="btn_quit">退出</string>
+    <string name="out_of_date">已超过使用期限</string>
+    <string name="command_error">send command failed</string>
+    <!-- dialog_type是配置设备未连接时，sdk的提示行为， 0表示未连接设备时，常提示，1表示点击确认后提示消失， -->
+    <string name="dialog_behavior">0</string>
+</resources>
