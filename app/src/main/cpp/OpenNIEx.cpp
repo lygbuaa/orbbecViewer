@@ -33,6 +33,7 @@ int OpenNIEx::enumerateDevices(int vid, int pid){
     for (int i = 0; i < size; ++i) {
         if(array[i].getUsbProductId() == pid && array[i].getUsbVendorId() ==  vid){
             uri = array[i].getUri();
+            LOGE("[orbbec] find device: %s\n", uri);
             break;
         }
     }

@@ -155,8 +155,8 @@ public class OpenGLView extends GLSurfaceView {
 
         GLES10.glTexImage2D(GLES10.GL_TEXTURE_2D, 0, GLES10.GL_RGBA, mCurrFrameWidth, mCurrFrameHeight, 0, GLES10.GL_RGBA,
                 GLES10.GL_UNSIGNED_BYTE, mTexture);
-        GLES11Ext.glDrawTexiOES(0, 0, 0, mSurfaceWidth, mSurfaceHeight);
-
+//        GLES11Ext.glDrawTexiOES(0, 0, 0, mSurfaceWidth, mSurfaceHeight);
+        GLES11Ext.glDrawTexiOES(0, 600, 0, 1200, 800);
 
         GLES10.glDisable(GLES10.GL_TEXTURE_2D);
     }

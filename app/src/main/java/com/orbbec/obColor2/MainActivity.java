@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements OpenNIHelper.DeviceOpenLis
 			Toast.makeText(this, "OpenNI Open failed", Toast.LENGTH_SHORT).show();
 			return;
 		}else {
-			Log.d(TAG, "open device success "+ Integer.toHexString(VID) +"0x" +Integer.toHexString(PID));
+			Log.e(TAG, "[orbbec] open device success "+ Integer.toHexString(VID) +"0x" +Integer.toHexString(PID));
 		}
 		startThread();
 	}
