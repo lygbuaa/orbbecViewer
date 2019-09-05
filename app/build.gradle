@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29-rc3"
     defaultConfig {
-        applicationId "com.orbbec.obColor2"
+        applicationId "com.orbbec.viewer"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 3
@@ -23,6 +23,7 @@ android {
 
         ndk {
             abiFilters 'armeabi-v7a'
+//            abiFilters 'arm64-v8a'
         }
     }
     buildTypes {
@@ -43,9 +44,9 @@ android {
             def fileName
             if (outputFileName != null && outputFileName.endsWith('.apk')) {
                 if (variant.buildType.name.equals('release')) {
-                    fileName = "obColorforOpenNI2_${defaultConfig.versionName}_${getTime()}.apk"
+                    fileName = "orbbecViewer_${defaultConfig.versionName}_${getTime()}.apk"
                 } else if (variant.buildType.name.equals('debug')) {
-                    fileName = "obColorforOpenNI2_${defaultConfig.versionName}_${getTime()}.apk"
+                    fileName = "orbbecViewer_${defaultConfig.versionName}_${getTime()}.apk"
                 }
                 output.outputFileName = new File(outputFileName, fileName)
             }

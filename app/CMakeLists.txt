@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.4.1)
 
 add_compile_options(-std=c++11)
 
-include_directories(src/main/cpp/include)
+include_directories(src/main/cpp src/main/cpp/include)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -18,9 +18,11 @@ add_library(OpenNI2
             IMPORTED
 )
 
+SET(OpenNI2_PATH /home/hugoliu/orbbec/OpenNI_2.3.0.55/Android/OpenNI-Android-2.3.0.55)
+
 set_target_properties(OpenNI2
                        PROPERTIES IMPORTED_LOCATION
-                       ../../../../libs/armeabi-v7a/libOpenNI2.so)
+                       ${OpenNI2_PATH}/libs/armeabi-v7a/libOpenNI2.so)
 
 
 add_library( # Sets the name of the library.
